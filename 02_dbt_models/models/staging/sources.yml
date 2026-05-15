@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: statsbomb
+    description: "StatsBomb match event data from La Liga 2005/06"
+    schema: main
+    tables:
+      - name: events
+        description: "Raw match events including passes, shots, carries and more"
+        external:
+          location: "data/events.parquet"
+        columns:
+          - name: id
+            description: "Unique event identifier"
+          - name: index
+            description: "Event sequence number within match"
+          - name: period
+            description: "Match period (1-5)"
+          - name: timestamp
+            description: "Event timestamp within period"
+          - name: minute
+            description: "Match minute"
+          - name: second
+            description: "Match second"
+          - name: type
+            description: "Event type (Pass, Shot, Carry etc)"
+          - name: team
+            description: "Team name"
+          - name: player
+            description: "Player name"
+          - name: match_id
+            description: "Match identifier"
+          - name: home_team
+            description: "Home team name"
+          - name: away_team
+            description: "Away team name"

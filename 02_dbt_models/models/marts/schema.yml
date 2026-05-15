@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: mart_player_performance
+    description: "Player performance metrics aggregated per match"
+    columns:
+      - name: player_name
+        description: "Player name"
+        tests:
+          - not_null
+      - name: match_id
+        description: "Match identifier"
+        tests:
+          - not_null
+
+  - name: mart_team_summary
+    description: "Team performance metrics aggregated per match"
+    columns:
+      - name: team_name
+        description: "Team name"
+        tests:
+          - not_null
+      - name: match_id
+        description: "Match identifier"
+        tests:
+          - not_null
+
+  - name: mart_shot_analysis
+    description: "Individual shot records with enriched context"
+    columns:
+      - name: event_id
+        description: "Unique shot event identifier"
+        tests:
+          - unique
+          - not_null
