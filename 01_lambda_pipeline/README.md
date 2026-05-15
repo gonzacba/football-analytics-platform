@@ -29,6 +29,7 @@ S3 Processed Bucket (s3://football-processed/processed/)
 
 ## Project Structure
 
+​```
 01_lambda_pipeline/
 ├── src/
 │   ├── lambda_function.py    # Lambda handler, S3 trigger logic
@@ -41,6 +42,7 @@ S3 Processed Bucket (s3://football-processed/processed/)
 │   ├── cleanup_aws.py        # Teardown script
 │   └── test_live.py          # Live pipeline test with real data
 └── README.md
+​```
 
 ## Pipeline Details
 
