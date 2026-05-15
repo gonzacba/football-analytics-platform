@@ -32,15 +32,15 @@ S3 Processed Bucket (s3://football-processed/processed/)
 ​```
 01_lambda_pipeline/
 ├── src/
-│   ├── lambda_function.py    # Lambda handler, S3 trigger logic
-│   ├── transformer.py        # JSON flattening, Parquet serialization
-│   └── validator.py          # Pandera schema enforcement
+│   ├── lambda_function.py
+│   ├── transformer.py
+│   └── validator.py
 ├── tests/
-│   └── test_pipeline.py      # Unit + integration tests with moto
+│   └── test_pipeline.py
 ├── infra/
-│   ├── setup_aws.py          # Full deployment script
-│   ├── cleanup_aws.py        # Teardown script
-│   └── test_live.py          # Live pipeline test with real data
+│   ├── setup_aws.py
+│   ├── cleanup_aws.py
+│   └── test_live.py
 └── README.md
 ​```
 
