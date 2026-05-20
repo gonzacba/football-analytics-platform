@@ -1,4 +1,4 @@
-# soccer Analytics Platform
+# Soccer Analytics Platform
 
 A production-grade soccer analytics platform built on AWS and dbt, 
 using StatsBomb open data to mirror the data infrastructure used by 
