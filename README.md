@@ -1,8 +1,8 @@
-# Football Analytics Platform
+# soccer Analytics Platform
 
-A production-grade football analytics platform built on AWS and dbt, 
+A production-grade soccer analytics platform built on AWS and dbt, 
 using StatsBomb open data to mirror the data infrastructure used by 
-professional football clubs.
+professional soccer clubs.
 
 ## Projects
 
@@ -20,4 +20,4 @@ AWS Lambda, S3, IAM, CloudWatch, Python, Pandas, PyArrow, Pandera,
 dbt Core, DuckDB, pytest, moto, GitHub Actions, StatsBomb Open Data
 
 ## CI/CD
-![Tests](https://github.com/gonzacba/football-analytics-platform/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/gonzacba/soccer-analytics-platform/actions/workflows/test.yml/badge.svg)

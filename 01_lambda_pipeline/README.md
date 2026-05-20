@@ -1,4 +1,4 @@
-# Football Analytics Data Pipeline
+# soccer Analytics Data Pipeline
  
 An event-driven AWS data pipeline that ingests StatsBomb match event data, validates schema integrity, and transforms raw JSON into optimized Parquet format for analytics.
  
@@ -66,7 +66,7 @@ A single match (3,947 events) compresses from raw JSON to ~215 KB Parquet.
 ## Test Suite
  
 ```
-conda activate football-pipeline
+conda activate soccer-pipeline
 pytest tests/ -v
 ```
  
@@ -80,7 +80,7 @@ pytest tests/ -v
 ## Deployment
  
 ```
-conda activate football-pipeline
+conda activate soccer-pipeline
 python infra/setup_aws.py
 python infra/test_live.py
 python infra/cleanup_aws.py

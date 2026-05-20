@@ -1,9 +1,9 @@
 
-name: 'football_analytics'
+name: 'soccer_analytics'
 version: '1.0.0'
 config-version: 2
 
-profile: 'football_analytics'
+profile: 'soccer_analytics'
 
 model-paths: ["models"]
 seed-paths: ["seeds"]
@@ -14,7 +14,7 @@ target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 models:
-  football_analytics:
+  soccer_analytics:
     staging:
       +materialized: view
     marts:

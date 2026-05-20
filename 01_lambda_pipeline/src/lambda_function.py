@@ -9,7 +9,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 s3_client = boto3.client("s3")
-OUTPUT_BUCKET = os.environ.get("OUTPUT_BUCKET", "football-processed-data")
+OUTPUT_BUCKET = os.environ.get("OUTPUT_BUCKET", "soccer-processed-data")
 
 def handler(event, context):
     """

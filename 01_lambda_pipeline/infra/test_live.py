@@ -4,8 +4,8 @@ import time
 from statsbombpy import sb
 
 REGION = "us-east-1"
-RAW_BUCKET = "football-raw-events-gonvi"
-PROCESSED_BUCKET = "football-processed-gonvi"
+RAW_BUCKET = "soccer-raw-events-gonvi"
+PROCESSED_BUCKET = "soccer-processed-gonvi"
 
 # Get a real match from StatsBomb free data
 print("Fetching StatsBomb free data...")
@@ -37,4 +37,4 @@ if result.get("KeyCount", 0) > 0:
         print(f"✓ Processed file found: {obj['Key']} ({obj['Size']} bytes)")
 else:
     print("No processed files yet - check CloudWatch logs")
-    print("Run: aws logs tail /aws/lambda/football-event-pipeline --follow")
+    print("Run: aws logs tail /aws/lambda/soccer-event-pipeline --follow")

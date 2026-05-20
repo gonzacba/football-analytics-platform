@@ -1,8 +1,8 @@
-# Football Analytics — dbt Transformation Layer
+# soccer Analytics — dbt Transformation Layer
 
 A dbt (data build tool) project that transforms raw StatsBomb match event data into analytics-ready tables for player performance, team analysis, and shot intelligence.
 
-This project sits on top of the AWS Lambda ingestion pipeline (see 01_lambda_pipeline) and represents the transformation layer of the football analytics platform.
+This project sits on top of the AWS Lambda ingestion pipeline (see 01_lambda_pipeline) and represents the transformation layer of the soccer analytics platform.
 
 ## Architecture
 
@@ -153,7 +153,7 @@ dbt test
 
 ```
 # Install dependencies
-conda activate football-pipeline
+conda activate soccer-pipeline
 pip install dbt-core dbt-duckdb duckdb
 
 # Download StatsBomb data
@@ -177,5 +177,5 @@ StatsBomb JSON -> S3 Raw Bucket -> Lambda -> Pandera Validation -> Parquet -> S3
 
 ## Data Source
 
-Uses StatsBomb Open Data (https://github.com/statsbomb/open-data) — freely available professional match data. StatsBomb is one of the leading football data providers used by professional clubs worldwide, and is explicitly listed as a data provider in Inter Miami CF's analytics infrastructure.
+Uses StatsBomb Open Data (https://github.com/statsbomb/open-data) — freely available professional match data. StatsBomb is one of the leading soccer data providers used by professional clubs worldwide, and is explicitly listed as a data provider in Inter Miami CF's analytics infrastructure.
 

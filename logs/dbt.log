@@ -5,9 +5,9 @@
 [0m16:36:25.766937 [info ] [MainThread]: Running with dbt=1.11.10
 [0m16:36:25.766937 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\gonvi\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init 02_dbt_models', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
 [0m16:36:25.782770 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\gonvi\.dbt
-[0m16:37:32.035274 [debug] [MainThread]: Starter project path: C:\Users\gonvi\anaconda3\envs\football-pipeline\Lib\site-packages\dbt\include\starter_project
+[0m16:37:32.035274 [debug] [MainThread]: Starter project path: C:\Users\gonvi\anaconda3\envs\soccer-pipeline\Lib\site-packages\dbt\include\starter_project
 [0m16:37:32.065273 [info ] [MainThread]: 
-Your new dbt project "football_analytics" was created!
+Your new dbt project "soccer_analytics" was created!
 
 For more information on how to configure the profiles.yml file,
 please consult the dbt documentation here:
@@ -23,7 +23,7 @@ Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
 Happy modeling!
 
 [0m16:37:32.067274 [info ] [MainThread]: Setting up your profile.
-[0m16:37:38.190924 [info ] [MainThread]: Profile football_analytics written to C:\Users\gonvi\.dbt\profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m16:37:38.190924 [info ] [MainThread]: Profile soccer_analytics written to C:\Users\gonvi\.dbt\profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
 [0m16:37:38.191927 [debug] [MainThread]: Command `dbt init` succeeded at 16:37:38.191927 after 72.55 seconds
 [0m16:37:38.191927 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002042B369F10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002042B3934D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020424E0DB90>]}
 [0m16:37:38.192928 [debug] [MainThread]: Flushing usage events

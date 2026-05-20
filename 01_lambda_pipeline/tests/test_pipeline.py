@@ -44,11 +44,11 @@ def test_parquet_serialization():
 def test_lambda_handler_end_to_end():
     """Full pipeline test with mocked S3."""
     s3 = boto3.client("s3", region_name="us-east-1")
-    s3.create_bucket(Bucket="football-raw-data")
-    s3.create_bucket(Bucket="football-processed-data")
+    s3.create_bucket(Bucket="soccer-raw-data")
+    s3.create_bucket(Bucket="soccer-processed-data")
 
     s3.put_object(
-        Bucket="football-raw-data",
+        Bucket="soccer-raw-data",
         Key="raw/match_001.json",
         Body=json.dumps(SAMPLE_EVENTS)
     )
@@ -56,17 +56,17 @@ def test_lambda_handler_end_to_end():
     s3_event = {
         "Records": [{
             "s3": {
-                "bucket": {"name": "football-raw-data"},
+                "bucket": {"name": "soccer-raw-data"},
                 "object": {"key": "raw/match_001.json"}
             }
         }]
     }
 
-    with patch.dict(os.environ, {"OUTPUT_BUCKET": "football-processed-data"}):
+    with patch.dict(os.environ, {"OUTPUT_BUCKET": "soccer-processed-data"}):
         from lambda_function import handler
         result = handler(s3_event, {})
 
     assert result["statusCode"] == 200
 
-    objects = s3.list_objects_v2(Bucket="football-processed-data")
+    objects = s3.list_objects_v2(Bucket="soccer-processed-data")
     assert objects["KeyCount"] == 1

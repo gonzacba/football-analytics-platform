@@ -5,10 +5,10 @@ import json
 import time
 
 REGION = "us-east-1"
-RAW_BUCKET = "football-raw-events-gonvi"
-PROCESSED_BUCKET = "football-processed-gonvi"
-LAMBDA_NAME = "football-event-pipeline"
-ROLE_NAME = "football-lambda-role"
+RAW_BUCKET = "soccer-raw-events-gonvi"
+PROCESSED_BUCKET = "soccer-processed-gonvi"
+LAMBDA_NAME = "soccer-event-pipeline"
+ROLE_NAME = "soccer-lambda-role"
 
 def create_buckets():
     s3 = boto3.client("s3", region_name=REGION)
@@ -99,7 +99,7 @@ def deploy_lambda(role_arn):
 
     # Publish pandera layer
     layer_response = lam.publish_layer_version(
-        LayerName="football-dependencies",
+        LayerName="soccer-dependencies",
         Content={
             "S3Bucket": PROCESSED_BUCKET,
             "S3Key": "lambda/layer.zip"
@@ -169,7 +169,7 @@ def add_s3_trigger():
     print(f"✓ S3 trigger configured on {RAW_BUCKET}")
 
 if __name__ == "__main__":
-    print("=== Deploying Football Analytics Pipeline ===")
+    print("=== Deploying soccer Analytics Pipeline ===")
     create_buckets()
     role_arn = create_lambda_role()
     package_lambda()

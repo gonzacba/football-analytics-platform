@@ -1,9 +1,9 @@
 import boto3
 
 REGION = "us-east-1"
-LAMBDA_NAME = "football-event-pipeline"
-ROLE_NAME = "football-lambda-role"
-BUCKETS = ["football-raw-events-gonvi", "football-processed-gonvi"]
+LAMBDA_NAME = "soccer-event-pipeline"
+ROLE_NAME = "soccer-lambda-role"
+BUCKETS = ["soccer-raw-events-gonvi", "soccer-processed-gonvi"]
 
 # Delete Lambda
 lam = boto3.client("lambda", region_name=REGION)
