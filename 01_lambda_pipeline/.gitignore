@@ -1,0 +1,9 @@
+# Lambda build artifacts - never commit these
+layer/
+package/
+lambda.zip
+layer.zip
+dev.duckdb
+__pycache__/
+*.pyc
+.pytest_cache/

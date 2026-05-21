@@ -1,0 +1,13 @@
+
+# Terraform state — contains sensitive data, never commit
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+*.tfvars
+
+# Lambda build artifacts
+lambda.zip
+layer.zip
+layer/
+package/
