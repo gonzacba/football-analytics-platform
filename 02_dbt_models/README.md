@@ -1,4 +1,4 @@
-# soccer Analytics — dbt Transformation Layer
+# Soccer Analytics — dbt Transformation Layer
 
 A dbt (data build tool) project that transforms raw StatsBomb match event data into analytics-ready tables for player performance, team analysis, and shot intelligence.
 

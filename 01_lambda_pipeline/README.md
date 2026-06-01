@@ -1,4 +1,4 @@
-# soccer Analytics Data Pipeline
+# Soccer Analytics Data Pipeline
  
 An event-driven AWS data pipeline that ingests StatsBomb match event data, validates schema integrity, and transforms raw JSON into optimized Parquet format for analytics.
  
