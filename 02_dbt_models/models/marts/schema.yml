@@ -33,3 +33,23 @@ models:
         tests:
           - unique
           - not_null
+    
+  - name: mart_pass_networks
+    description: "Pass network connections between player pairs per match"
+    columns:
+      - name: passer_name
+        description: "Player making the pass"
+        tests:
+          - not_null
+      - name: recipient_name
+        description: "Player receiving the pass"
+        tests:
+          - not_null
+      - name: match_id
+        description: "Match identifier"
+        tests:
+          - not_null
+      - name: total_passes
+        description: "Total passes between this player pair in this match"
+        tests:
+          - not_null
