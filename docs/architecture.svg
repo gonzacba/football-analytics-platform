@@ -1,0 +1,179 @@
+<svg width="100%" viewBox="0 0 680 740" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Soccer Analytics Platform — Architecture Diagram</title>
+<desc>Complete 4-component soccer analytics platform flowing top to bottom</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1a1a1a; }
+    .th { font-size: 14px; font-weight: 500; }
+    .ts { font-size: 12px; font-weight: 400; fill: #555; }
+    .arr { stroke: #888; stroke-width: 1.5; fill: none; }
+
+    /* teal */
+    .c-teal rect { fill: #E1F5EE; stroke: #0F6E56; }
+    .c-teal .th { fill: #085041; }
+    .c-teal .ts { fill: #0F6E56; }
+
+    /* blue */
+    .c-blue rect { fill: #E6F1FB; stroke: #185FA5; }
+    .c-blue .th { fill: #0C447C; }
+    .c-blue .ts { fill: #185FA5; }
+
+    /* gray */
+    .c-gray rect { fill: #F1EFE8; stroke: #5F5E5A; }
+    .c-gray .th { fill: #444441; }
+    .c-gray .ts { fill: #5F5E5A; }
+
+    /* purple */
+    .c-purple rect { fill: #EEEDFE; stroke: #534AB7; }
+    .c-purple .th { fill: #3C3489; }
+    .c-purple .ts { fill: #534AB7; }
+
+    /* coral */
+    .c-coral rect { fill: #FAECE7; stroke: #993C1D; }
+    .c-coral .th { fill: #712B13; }
+    .c-coral .ts { fill: #993C1D; }
+
+    /* amber */
+    .c-amber rect { fill: #FAEEDA; stroke: #854F0B; }
+    .c-amber .th { fill: #633806; }
+    .c-amber .ts { fill: #854F0B; }
+
+    .footer rect { fill: none; stroke: #ccc; }
+    .footer text { fill: #888; }
+  </style>
+</defs>
+
+<!-- Title -->
+<text class="th" x="340" y="24" text-anchor="middle" font-size="15">Soccer Analytics Platform</text>
+<text class="ts" x="340" y="40" text-anchor="middle">FIFA World Cup 2022 · 234,637 events · 64 matches · 32 nations</text>
+
+<!-- StatsBomb -->
+<g class="c-teal">
+  <rect x="30" y="60" width="140" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="100" y="81" text-anchor="middle" dominant-baseline="central">StatsBomb</text>
+  <text class="ts" x="100" y="98" text-anchor="middle" dominant-baseline="central">open data · JSON</text>
+</g>
+
+<!-- Arrow → Lambda -->
+<line x1="170" y1="88" x2="228" y2="88" class="arr" marker-end="url(#arrow)" stroke="#1D9E75"/>
+<text class="ts" x="199" y="80" text-anchor="middle" fill="#1D9E75">JSON</text>
+
+<!-- Lambda -->
+<g class="c-blue">
+  <rect x="230" y="60" width="200" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="330" y="78" text-anchor="middle" dominant-baseline="central">01 — Lambda pipeline</text>
+  <text class="ts" x="330" y="94" text-anchor="middle" dominant-baseline="central">Pandera · PyArrow · pytest · moto</text>
+  <text class="ts" x="330" y="108" text-anchor="middle" dominant-baseline="central">4/4 tests · event-driven</text>
+</g>
+
+<!-- Arrow → S3 -->
+<line x1="430" y1="88" x2="488" y2="88" class="arr" marker-end="url(#arrow)" stroke="#185FA5"/>
+<text class="ts" x="459" y="80" text-anchor="middle" fill="#185FA5">Parquet</text>
+
+<!-- S3 -->
+<g class="c-gray">
+  <rect x="490" y="60" width="160" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th" x="570" y="78" text-anchor="middle" dominant-baseline="central">AWS S3 data lake</text>
+  <text class="ts" x="570" y="94" text-anchor="middle" dominant-baseline="central">raw/ · processed/</text>
+  <text class="ts" x="570" y="108" text-anchor="middle" dominant-baseline="central">lifecycle · encrypted</text>
+</g>
+
+<!-- Arrow down to dbt -->
+<line x1="330" y1="116" x2="330" y2="146" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+<text class="ts" x="346" y="135" text-anchor="start">read Parquet</text>
+
+<!-- dbt -->
+<g class="c-purple">
+  <rect x="130" y="146" width="400" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="330" y="165" text-anchor="middle" dominant-baseline="central">02 — dbt transformation layer</text>
+  <text class="ts" x="330" y="182" text-anchor="middle" dominant-baseline="central">dbt Core · DuckDB · 3-layer architecture · 6 models · 16/16 tests</text>
+</g>
+
+<text class="ts" x="330" y="214" text-anchor="middle">base_events  →  stg_events  →  mart layer</text>
+
+<!-- Fan arrows -->
+<line x1="330" y1="218" x2="75" y2="244" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+<line x1="330" y1="218" x2="200" y2="244" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+<line x1="330" y1="218" x2="330" y2="244" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+<line x1="330" y1="218" x2="460" y2="244" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+<line x1="330" y1="218" x2="585" y2="244" class="arr" marker-end="url(#arrow)" stroke="#888"/>
+
+<!-- Mart boxes -->
+<g class="c-purple">
+  <rect x="20" y="244" width="110" height="62" rx="8" stroke-width="0.5"/>
+  <text class="th" x="75" y="262" text-anchor="middle" dominant-baseline="central">Player perf.</text>
+  <text class="ts" x="75" y="278" text-anchor="middle" dominant-baseline="central">passes · shots</text>
+  <text class="ts" x="75" y="293" text-anchor="middle" dominant-baseline="central">xG · dribbles</text>
+</g>
+
+<g class="c-purple">
+  <rect x="145" y="244" width="110" height="62" rx="8" stroke-width="0.5"/>
+  <text class="th" x="200" y="262" text-anchor="middle" dominant-baseline="central">Pass networks</text>
+  <text class="ts" x="200" y="278" text-anchor="middle" dominant-baseline="central">De Paul→Messi</text>
+  <text class="ts" x="200" y="293" text-anchor="middle" dominant-baseline="central">110 passes</text>
+</g>
+
+<g class="c-purple">
+  <rect x="275" y="244" width="110" height="62" rx="8" stroke-width="0.5"/>
+  <text class="th" x="330" y="262" text-anchor="middle" dominant-baseline="central">Team summary</text>
+  <text class="ts" x="330" y="278" text-anchor="middle" dominant-baseline="central">ARG 23 goals</text>
+  <text class="ts" x="330" y="293" text-anchor="middle" dominant-baseline="central">20.99 xG</text>
+</g>
+
+<g class="c-purple">
+  <rect x="400" y="244" width="110" height="62" rx="8" stroke-width="0.5"/>
+  <text class="th" x="455" y="262" text-anchor="middle" dominant-baseline="central">Shot analysis</text>
+  <text class="ts" x="455" y="278" text-anchor="middle" dominant-baseline="central">xG per shot</text>
+  <text class="ts" x="455" y="293" text-anchor="middle" dominant-baseline="central">time brackets</text>
+</g>
+
+<g class="c-purple">
+  <rect x="525" y="244" width="115" height="62" rx="8" stroke-width="0.5"/>
+  <text class="th" x="582" y="262" text-anchor="middle" dominant-baseline="central">Player season</text>
+  <text class="ts" x="582" y="278" text-anchor="middle" dominant-baseline="central">season totals</text>
+  <text class="ts" x="582" y="293" text-anchor="middle" dominant-baseline="central">all metrics</text>
+</g>
+
+<!-- Divider -->
+<line x1="30" y1="330" x2="650" y2="330" stroke="#ccc" stroke-width="0.5" stroke-dasharray="5 4"/>
+<text class="ts" x="340" y="346" text-anchor="middle">infrastructure &amp; orchestration</text>
+
+<!-- Terraform -->
+<g class="c-coral">
+  <rect x="30" y="358" width="300" height="88" rx="8" stroke-width="0.5"/>
+  <text class="th" x="180" y="378" text-anchor="middle" dominant-baseline="central">03 — Terraform IaC</text>
+  <text class="ts" x="180" y="395" text-anchor="middle" dominant-baseline="central">Lambda · S3 · IAM · SQS · CloudWatch</text>
+  <text class="ts" x="180" y="411" text-anchor="middle" dominant-baseline="central">dead-letter queue · lifecycle rules</text>
+  <text class="ts" x="180" y="427" text-anchor="middle" dominant-baseline="central">15 resources · apply / destroy</text>
+</g>
+
+<!-- Prefect -->
+<g class="c-amber">
+  <rect x="350" y="358" width="300" height="88" rx="8" stroke-width="0.5"/>
+  <text class="th" x="500" y="378" text-anchor="middle" dominant-baseline="central">04 — Prefect orchestration</text>
+  <text class="ts" x="500" y="395" text-anchor="middle" dominant-baseline="central">ingest · wait · verify · transform</text>
+  <text class="ts" x="500" y="411" text-anchor="middle" dominant-baseline="central">task retries · subflows · monitoring</text>
+  <text class="ts" x="500" y="427" text-anchor="middle" dominant-baseline="central">11,767 events per run · automated</text>
+</g>
+
+<!-- CI/CD -->
+<g class="c-teal">
+  <rect x="30" y="468" width="620" height="52" rx="8" stroke-width="0.5"/>
+  <text class="th" x="340" y="488" text-anchor="middle" dominant-baseline="central">GitHub Actions CI/CD</text>
+  <text class="ts" x="340" y="505" text-anchor="middle" dominant-baseline="central">pytest · moto · ubuntu-latest · automated on every push · ✓ passing</text>
+</g>
+
+<!-- Tech stack footer -->
+<g class="footer">
+  <rect x="30" y="540" width="620" height="40" rx="6"/>
+  <text class="ts" x="340" y="556" text-anchor="middle">AWS Lambda · S3 · IAM · SQS · CloudWatch · Terraform · Prefect · dbt Core · DuckDB</text>
+  <text class="ts" x="340" y="572" text-anchor="middle">Python · Pandas · PyArrow · Pandera · pytest · moto · GitHub Actions · StatsBomb</text>
+</g>
+
+<!-- Credit -->
+<text x="340" y="604" text-anchor="middle" font-size="11" fill="#aaa" font-family="-apple-system, sans-serif">Data: StatsBomb Open Data · Platform: github.com/gonzacba/soccer-analytics-platform</text>
+
+</svg>

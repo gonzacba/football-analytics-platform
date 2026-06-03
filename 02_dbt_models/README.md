@@ -30,7 +30,7 @@ performance     summary           analysis
 - Transformation: dbt Core 1.11
 - Database Engine: DuckDB (reads Parquet natively)
 - Data Format: Parquet (from Day 1 Lambda pipeline)
-- Data Source: StatsBomb Open Data (10 La Liga matches, 38,382 events)
+- Data Source: StatsBomb FIFA World Cup 2022 (64 matches, 234,637 events, 32 teams)
 - Testing: dbt built-in tests (unique, not_null, accepted_values)
 
 ## Project Structure

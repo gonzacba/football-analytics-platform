@@ -1,8 +1,9 @@
 # Soccer Analytics Platform
 
 ![Tests](https://github.com/gonzacba/soccer-analytics-platform/actions/workflows/test.yml/badge.svg)
+![Architecture](docs/architecture.svg)
 
-A production-grade, 4-component soccer analytics platform built on AWS, dbt, Terraform, and Prefect — using StatsBomb open data to mirror the data infrastructure used by professional soccer clubs.
+A production-grade, 4-component soccer analytics platform built on AWS, dbt, Terraform, and Prefect — using StatsBomb FIFA World Cup 2022 open data (64 matches, 234,637 events, 32 teams)
 
 ## Platform Architecture
 
