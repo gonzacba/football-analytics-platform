@@ -5,19 +5,21 @@ import pandas as pd
 
 OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-print("Fetching StatsBomb free data...")
+print("Fetching FIFA World Cup 2022 data...")
 
-# Get La Liga 2005/06 matches (competition_id=11, season_id=1)
-matches = sb.matches(competition_id=11, season_id=1)
+# FIFA World Cup 2022 — competition_id=43, season_id=106
+matches = sb.matches(competition_id=43, season_id=106)
 print(f"Found {len(matches)} matches")
 
-# Download first 10 matches
+# Download all 64 matches
 all_events = []
-for i, row in matches.head(10).iterrows():
+for i, row in matches.iterrows():
     match_id = row["match_id"]
     home = row["home_team"]
     away = row["away_team"]
-    print(f"Downloading match {match_id}: {home} vs {away}")
+    home_score = row["home_score"]
+    away_score = row["away_score"]
+    print(f"Downloading match {match_id}: {home} {home_score}-{away_score} {away}")
     events = sb.events(match_id=match_id)
     events["match_id"] = match_id
     events["home_team"] = home
@@ -32,4 +34,6 @@ print(f"\nTotal events: {len(df)}")
 output_path = os.path.join(OUTPUT_DIR, "events.parquet")
 df.to_parquet(output_path, index=False)
 print(f"Saved to {output_path}")
-print(f"Columns: {list(df.columns)}")
+print(f"Columns: {len(df.columns)} columns")
+print(f"Matches: {df['match_id'].nunique()} matches")
+print(f"Teams: {df['team'].nunique()} teams")

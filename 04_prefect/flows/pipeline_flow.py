@@ -41,12 +41,11 @@ def verify_processed_files(uploaded_keys: list, processed_bucket: str) -> dict:
     logger.info(f"Processing success rate: {success_rate:.1f}%")
     return results
 
-
 @flow(name="soccer-analytics-pipeline", log_prints=True)
 def pipeline_flow(
-    competition_id: int = 11,
-    season_id: int = 1,
-    max_matches: int = 3,
+    competition_id: int = 43,
+    season_id: int = 106,
+    max_matches: int = 5,
     raw_bucket: str = "soccer-analytics-raw-events-dev",
     processed_bucket: str = "soccer-analytics-processed-dev",
     run_tests: bool = True

@@ -7,8 +7,8 @@ from statsbombpy import sb
 # Configuration
 RAW_BUCKET = "soccer-analytics-raw-events-dev"
 REGION = "us-east-1"
-COMPETITION_ID = 11  # La Liga
-SEASON_ID = 1        # 2005/06
+COMPETITION_ID = 43   # FIFA World Cup
+SEASON_ID = 106       # 2022
 
 
 @task(name="fetch-matches", retries=2, retry_delay_seconds=10)
